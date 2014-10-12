@@ -6,7 +6,7 @@ MAINTAINER Dimitris Bozelos <dbozelos@gmail.com>
 RUN        apt-get update
 
 # Install.
-           apt-get -y install gearman-job-server
+RUN        apt-get -y install gearman-job-server
 
 # Clean up.
 RUN        apt-get clean && \
