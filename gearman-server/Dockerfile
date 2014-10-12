@@ -2,5 +2,16 @@ FROM       debian:wheezy
 
 MAINTAINER Dimitris Bozelos <dbozelos@gmail.com>
 
-RUN        apt-get update && \
-           apt-get install gearman-job-server -y
+# Update.
+RUN        apt-get update
+
+# Install.
+           apt-get -y install gearman-job-server
+
+# Clean up.
+RUN        apt-get clean && \
+           rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+EXPOSE     4730
+
+ENTRYPOINT ["gearmand"]
