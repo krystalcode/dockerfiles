@@ -1,4 +1,4 @@
-FROM       debian:wheezy
+FROM       phusion/baseimage
 
 MAINTAINER Dimitris Bozelos <dbozelos@gmail.com>
 
