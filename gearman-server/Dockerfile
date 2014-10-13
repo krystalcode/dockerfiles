@@ -14,4 +14,5 @@ RUN        apt-get clean && \
 
 EXPOSE     4730
 
+# @todo: Fix problem with entrypoint
 ENTRYPOINT ["gearmand"]

@@ -14,6 +14,7 @@ RUN        apt-get clean && \
            rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Enable gearman extension in php.ini
+# @todo: Set priority in gearman.ini
 RUN         cd /etc/php5/cli/conf.d && \
             touch gearman.ini && \
             echo '; configuration for php gearman module' >> gearman.ini && \
