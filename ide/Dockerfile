@@ -6,7 +6,7 @@ MAINTAINER Dimitris Bozelos <dbozelos@gmail.com>
 RUN apt-get update && apt-get -y upgrade
 
 # Install.
-RUN apt-get -y install emacs git xclip
+RUN apt-get -y install emacs git
 
 # Clean up.
 RUN apt-get clean && \
