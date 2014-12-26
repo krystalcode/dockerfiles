@@ -6,7 +6,7 @@ MAINTAINER Dimitris Bozelos <dbozelos@gmail.com>
 RUN apt-get update
 
 # Install.
-RUN apt-get -y install mysql-server php5 php5-mysql php5-gd drush
+RUN apt-get -y install mysql-server php5 php5-mysql php5-gd php5-curl drush
 
 # Clean up.
 RUN apt-get clean && \
