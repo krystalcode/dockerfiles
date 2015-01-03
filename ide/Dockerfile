@@ -3,7 +3,7 @@ FROM krystalcode/baseimages_dockerfile_ubuntu
 MAINTAINER Dimitris Bozelos <dbozelos@gmail.com>
 
 # Update.
-RUN apt-get update && apt-get -y upgrade
+RUN apt-get update
 
 # Install.
 RUN apt-get -y install emacs git wget php5-cli
