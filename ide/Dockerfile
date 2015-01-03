@@ -1,4 +1,4 @@
-FROM dockerfile/ubuntu
+FROM krystalcode/baseimages_dockerfile_ubuntu
 
 MAINTAINER Dimitris Bozelos <dbozelos@gmail.com>
 
