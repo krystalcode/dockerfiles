@@ -1,4 +1,4 @@
-FROM krystalcode/baseimages_phusion_baseimage
+FROM phusion/baseimage
 
 MAINTAINER Dimitris Bozelos <dbozelos@gmail.com>
 
