@@ -24,6 +24,12 @@ RUN service mysql start && mysql -u root -e 'CREATE DATABASE application charset
 # Configure supervisor.
 ADD ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Copy the drupal-init.sh script into the /root folder.
+ADD ./drupal-install-common.sh /root/
+ADD ./drupal-install-dev.sh /root/
+ADD ./drupal-install-minimal.sh /root/
+ADD ./drupal-install-standard.sh /root/
+
 # Expose port 80 for Apache.
 EXPOSE 80
 
