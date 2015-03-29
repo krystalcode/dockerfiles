@@ -9,14 +9,16 @@
 ;; Define packages that should be installed.
 (defvar required-packages
  '(
+  magit
   php-mode
   drupal-mode
+  scss-mode
+  dockerfile-mode
   column-marker
-  flymake
-  flymake-easy
-  flymake-php
+  flycheck
   auto-complete
   php-auto-yasnippets
+  w3m
  ) "The list of packages that should be installed on startup.")
 
 ;; Method that checks if all packages are installed.
@@ -95,3 +97,9 @@
 (yas-global-mode 1)
 (payas/ac-setup)
 (define-key php-mode-map (kbd "C-c C-y") 'yas/create-php-snippet)
+
+; Configure flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+; Change default browser for 'browse-url' to w3m.
+(setq browse-url-browser-function 'w3m-goto-url-new-session)
