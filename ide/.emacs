@@ -9,15 +9,22 @@
 ;; Define packages that should be installed.
 (defvar required-packages
  '(
-  magit
+  ; Major modes.
   php-mode
   drupal-mode
   scss-mode
   dockerfile-mode
-  column-marker
+  ; Version control.
+  magit
+  ; Productivity helpers.
   flycheck
   auto-complete
   php-auto-yasnippets
+  autopair
+  helm
+  ; Improved readability.
+  column-marker
+  ; Browser.
   w3m
  ) "The list of packages that should be installed on startup.")
 
@@ -106,3 +113,12 @@
 
 ; Change default browser for 'browse-url' to w3m.
 (setq browse-url-browser-function 'w3m-goto-url-new-session)
+
+; Configure autopair.
+(require 'autopair)
+(autopair-global-mode)
+
+; Configure helm.
+(require 'helm-config)
+(helm-mode 1)
+(helm-autoresize-mode 1)
