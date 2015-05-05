@@ -83,6 +83,9 @@
 ;; Javascript indentation.
 (setq js-indent-level 2)
 
+;; CSS indentation.
+(setq css-indent-offset 2)
+
 ;; Configure tramp mode.
 (setq tramp-default-method "ssh")
 
