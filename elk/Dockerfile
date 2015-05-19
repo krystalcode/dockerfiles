@@ -1,32 +1,46 @@
-FROM        nginx
+FROM ubuntu
 
 MAINTAINER Dimitris Bozelos <dbozelos@gmail.com>
 
-RUN        apt-get update && \
-           apt-get install openjdk-7-jre-headless -y && \
-           apt-get install wget -y && \
-           apt-get install ca-certificates -y
+# Update.
+RUN apt-get update
 
-RUN        mkdir /elk
+# Install java.
+RUN apt-get -y install openjdk-7-jre-headless
 
-RUN        cd /elk && \
-           wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.4.tar.gz && \
-           tar -zxf elasticsearch-1.3.4.tar.gz && \
-           rm elasticsearch-1.3.4.tar.gz && \
-           mv elasticsearch-1.3.4 elasticsearch
+# Install wget, needed to downloaded elk files.
+RUN apt-get -y install wget
 
-RUN        cd /elk && \
-           wget https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar.gz && \
-           tar -zxf logstash-1.4.2.tar.gz && \
-           rm logstash-1.4.2.tar.gz && \
-           mv logstash-1.4.2 logstash
+# Install supervisor.
+RUN apt-get -y install supervisor
 
-RUN        cd /var && \
-           wget https://download.elasticsearch.org/kibana/kibana/kibana-3.1.1.tar.gz && \
-           tar -zxf kibana-3.1.1.tar.gz && \
-           rm kibana-3.1.1.tar.gz && \
-           mv kibana-3.1.1 www
+# Clean up.
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-CMD        /elk/elasticsearch/bin/elasticsearch
+# Download and extract elasticsearch into /opt/elasticsearch.
+RUN mkdir /opt/elasticsearch -p && \
+    wget -qO- https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.5.2.tar.gz | \
+    tar -zxf - -C /opt/elasticsearch --strip-components=1
 
-# logstash to be executed from the build directory Dockerfile so that the logstash.conf is loaded.
+# Download and extract logstash into /opt/logstash.
+RUN mkdir /opt/logstash && \
+    wget -qO- http://download.elastic.co/logstash/logstash/logstash-1.5.0.tar.gz | \
+    tar -zxf - -C /opt/logstash --strip-components=1
+
+# Add logstash configuration.
+ADD ./logstash.conf /opt/logstash/logstash.conf
+
+# Download and extract kibana into /opt/logstash.
+RUN mkdir /opt/kibana && \
+    wget -qO- https://download.elastic.co/kibana/kibana/kibana-4.0.2-linux-x64.tar.gz | \
+    tar -zxf - -C /opt/kibana --strip-components=1
+
+# Add supervisord configuration.
+ADD ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+EXPOSE 9200
+EXPOSE 5601
+
+# Start supervisor which will make sure that elasticsearch, logstash and kibana are running.
+CMD ["/usr/bin/supervisord"]
