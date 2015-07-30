@@ -14,6 +14,8 @@
   drupal-mode
   scss-mode
   dockerfile-mode
+  haskell-mode
+  web-mode
   ; Version control.
   magit
   ; Productivity helpers.
@@ -86,6 +88,14 @@
 (add-to-list 'auto-mode-alist '("\\.\\(module\\|test\\|install\\|theme\\)$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(php\\|inc\\)$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.info" . conf-windows-mode))
+
+;; Configure web-mode.
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html\\.twig\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+
+;; Configure xml mode.
+(add-to-list 'auto-mode-alist '("\\.wsdl" . xml-mode))
 
 ;; Javascript indentation.
 (setq js-indent-level 2)
