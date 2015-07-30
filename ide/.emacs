@@ -122,3 +122,33 @@
 (require 'helm-config)
 (helm-mode 1)
 (helm-autoresize-mode 1)
+
+; Doc block functions.
+
+; Doc block for functions or classes (starting at the beginning of the line).
+(defun doc-block-basic-0 () (interactive)
+   (insert "/**\n * \n */")
+   (previous-line 1)
+)
+(define-key global-map (kbd "C-x / 0") 'doc-block-basic-0)
+
+; Doc block for functions or classes (starting 2 spaces in).
+(defun doc-block-basic-2 () (interactive)
+   (insert "  /**\n   * \n   */")
+   (previous-line 1)
+)
+(define-key global-map (kbd "C-x / 2") 'doc-block-basic-2)
+
+; Doc block for functions or classes (starting 4 spaces in).
+(defun doc-block-basic-4 () (interactive)
+   (insert "    /**\n     * \n     */")
+   (previous-line 1)
+)
+(define-key global-map (kbd "C-x / 4") 'doc-block-basic-4)
+
+; Doc block for functions or classes (starting 8 spaces in).
+(defun doc-block-basic-8 () (interactive)
+   (insert "    /**\n     * \n     */")
+   (previous-line 1)
+)
+(define-key global-map (kbd "C-x / 8") 'doc-block-basic-8)
