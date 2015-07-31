@@ -16,6 +16,7 @@
   dockerfile-mode
   haskell-mode
   web-mode
+  yaml-mode
   ; Version control.
   magit
   ; Productivity helpers.
@@ -93,6 +94,10 @@
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html\\.twig\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+
+;; Configure yaml-mode.
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 ;; Configure xml mode.
 (add-to-list 'auto-mode-alist '("\\.wsdl" . xml-mode))
