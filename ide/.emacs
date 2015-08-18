@@ -102,6 +102,9 @@
 ;; Configure xml mode.
 (add-to-list 'auto-mode-alist '("\\.wsdl" . xml-mode))
 
+;; Configure haskell-mode.
+(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+
 ;; Javascript indentation.
 (setq js-indent-level 2)
 
