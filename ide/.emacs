@@ -76,10 +76,10 @@
  ;; Use spaces instead of tabs.
  '(indent-tabs-mode nil))
 
-;; Column marker
+;; Require column-marker.
 (require 'column-marker)
 
-;; Configure php mode.
+;; Configure php-mode.
 (require 'php-mode)
 (add-hook 'php-mode-hook (lambda () (interactive) (column-marker-1 80)))
 
