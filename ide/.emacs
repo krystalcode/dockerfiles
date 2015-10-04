@@ -166,7 +166,7 @@
 
 ; Doc block for functions or classes (starting 8 spaces in).
 (defun doc-block-basic-8 () (interactive)
-   (insert "    /**\n     * \n     */")
+   (insert "    /**\n         * \n         */")
    (previous-line 1)
 )
 (define-key global-map (kbd "C-x / 8") 'doc-block-basic-8)
