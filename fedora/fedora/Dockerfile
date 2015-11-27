@@ -1,5 +1,7 @@
 FROM fedora
 
+MAINTAINER Dimitris Bozelos <dbozelos@gmail.com>
+
 # Upgrade packages.
 RUN dnf -y upgrade
 
