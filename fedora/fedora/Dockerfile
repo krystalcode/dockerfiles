@@ -3,8 +3,10 @@ FROM fedora
 # Upgrade packages.
 RUN dnf -y upgrade
 
-# Install "powerline". "which" is required by "powerline" (/usr/share/powerline/bash/powerline.sh).
-RUN dnf -y install powerline which
+# Install "powerline" and other tools.
+# "which" is required by "powerline" (/usr/share/powerline/bash/powerline.sh).
+# "findutils" provides the "find" command.
+RUN dnf -y install powerline which findutils
 
 # Clean up.
 RUN dnf -y clean all
