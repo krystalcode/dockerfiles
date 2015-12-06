@@ -8,7 +8,7 @@ RUN dnf -y upgrade
 # Install "powerline" and other tools.
 # "which" is required by "powerline" (/usr/share/powerline/bash/powerline.sh).
 # "findutils" provides the "find" command.
-RUN dnf -y install powerline which findutils
+RUN dnf -y install powerline which findutils tar
 
 # Clean up.
 RUN dnf -y clean all

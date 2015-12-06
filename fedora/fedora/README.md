@@ -5,3 +5,4 @@ Packages included are:
 - powerline
 - which
 - findutils (find, xargs)
+- tar
