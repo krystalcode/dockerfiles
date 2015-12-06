@@ -10,3 +10,4 @@ Packages included are:
 - composer
 - ruby & ruby-devel (required for install gems)
 - compass & bootstrap-sass (ruby gems)
+- patch

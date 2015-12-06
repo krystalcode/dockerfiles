@@ -1,7 +1,7 @@
 FROM krystalcode/fedora
 
 # Install packages.
-RUN dnf -y install emacs w3m git wget php-cli ruby ruby-devel gcc make
+RUN dnf -y install emacs w3m git wget php-cli ruby ruby-devel gcc make patch
 
 # Clean up.
 RUN dnf clean all
