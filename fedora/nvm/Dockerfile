@@ -7,4 +7,4 @@ RUN dnf -y install tar
 RUN dnf clean all
 
 # Install "nvm".
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.28.0/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
