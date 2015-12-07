@@ -8,7 +8,7 @@ RUN dnf clean all
 
 # Download and extract elasticsearch into /opt/elasticsearch.
 RUN mkdir /opt/elasticsearch -p && \
-    curl -O https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.1.0/elasticsearch-2.1.0.tar.gz | \
+    curl https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.1.0/elasticsearch-2.1.0.tar.gz | \
     tar -zxf - -C /opt/elasticsearch --strip-components=1
 
 # Add installation bin folder to the $PATH environmental variable.
