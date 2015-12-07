@@ -1,7 +1,10 @@
 FROM krystalcode/fedora
 
 # Install packages.
-RUN dnf -y install emacs w3m git wget php-cli ruby ruby-devel gcc make patch
+RUN dnf -y install emacs w3m git patch wget php-cli
+
+# Install packages required for the install the ruby gems.
+RUN ruby ruby-devel gcc make redhat-rpm-config
 
 # Clean up.
 RUN dnf clean all
