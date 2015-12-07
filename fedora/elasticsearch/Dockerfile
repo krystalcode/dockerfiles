@@ -15,7 +15,7 @@ RUN mkdir /opt/elasticsearch -p && \
 ENV PATH /opt/elasticsearch/bin:$PATH
 
 # Install Marvel.
-RUN /opt/elasticsearch/bin/plugin install license &&
+RUN /opt/elasticsearch/bin/plugin install license && \
     /opt/elasticsearch/bin/plugin install marvel-agent
 
 # Expose ports.
